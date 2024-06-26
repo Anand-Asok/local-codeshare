@@ -1,0 +1,72 @@
+/* App.css */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.status-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.status {
+  padding: 8px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.room-input {
+  margin-right: 10px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 300px;
+}
+
+.code-editor {
+  display: flex;
+  width: 100%;
+  font-family: monospace; /* Ensure consistent font family for both line numbers and code */
+  margin-top: 10px; /* Add margin for spacing between line numbers and textarea */
+}
+
+.code-textarea {
+  flex: 1; /* Take remaining space */
+  width: 100%;
+  height: 90vh; /* Adjust height as needed */
+  font-family: monospace; /* Use monospace font for consistent character width */
+  font-size: 14px; /* Adjust font size for code textarea */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+.line-number {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 10px; /* Padding for numbers */
+  background-color: #f0f0f0;
+  border-right: 1px solid #ccc; /* Vertical line */
+  user-select: none; /* Prevent text selection */
+  height: 90vh; /* Match the height of the textarea */
+  overflow-y: scroll; /* Enable vertical scrolling for line numbers if needed */
+}
+
+.line-number-item {
+  padding: 5px 8px;
+  font-size: 14px; /* Adjust font size to match textarea */
+  color: #666;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
