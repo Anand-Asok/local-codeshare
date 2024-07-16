@@ -1,8 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
-import './App.css';
 import LineNumber from './LineNumber'; 
 
 const SERVER_URL = 'http://192.168.1.6:4000'; 
@@ -12,6 +10,7 @@ const CodeEditor = () => {
     const { roomId } = useParams();
     const [code, setCode] = useState('');
     const [connectionStatus, setConnectionStatus] = useState('connecting');
+    const [darkMode, setDarkMode] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -65,25 +64,37 @@ const CodeEditor = () => {
         navigate(`/${newRoom}`);
     };
 
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+    };
+
     return (
-        <div className="App">
-            <div className="status-container">
+        <div className={`${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'} min-h-screen flex flex-col items-center p-4 overflow-auto`}>
+            <div className="mb-4 w-full flex items-center space-x-4">
                 <input
                     type="text"
                     placeholder="Enter ID"
                     value={roomId || ''}
                     onChange={handleRoomChange}
-                    className="room-input"
+                    className={`${darkMode ? 'bg-gray-800 text-white border-gray-600' : 'bg-white text-black border-gray-300'} flex-1 border rounded px-2 py-1`}
                 />
-                <div className="status">{connectionStatus}</div>
+                <div className={`px-2 py-1 rounded ${connectionStatus === 'connected' ? 'bg-green-200' : connectionStatus === 'disconnected' ? 'bg-red-200' : 'bg-yellow-200'}`}>
+                    {connectionStatus}
+                </div>
+                <button
+                    onClick={toggleDarkMode}
+                    className={`${darkMode ? 'bg-gray-800 text-white' : 'bg-gray-200 text-black'} px-2 py-1 rounded border`}
+                >
+                    Toggle Dark Mode
+                </button>
             </div>
-            <div className="code-editor">
-                <LineNumber code={code} /> 
+            <div className="w-full flex flex-grow overflow-auto border rounded">
+                <LineNumber code={code} darkMode={darkMode} />
                 <textarea
                     value={code}
                     onChange={handleCodeChange}
                     placeholder="Start coding..."
-                    className="code-textarea"
+                    className={`${darkMode ? 'bg-gray-800 text-white border-gray-600' : 'bg-white text-black border-gray-300'} flex-1 p-2 font-mono text-sm leading-5 resize-none overflow-auto`}
                 />
             </div>
         </div>
