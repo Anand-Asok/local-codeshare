@@ -7,7 +7,7 @@
 
 
 
-    Local CodeShare is an application designed to facilitate code sharing within the same network or workplace. This application provides an easy way for sharing your code with others, not only in a live manner but also allowing for chatting, communicating, and debugging code in real-time. It also supports making notes or tasks, ensuring everything is scalable. The application is developed using React and Node technologies.
+Local CodeShare is an application designed to facilitate code sharing within the same network or workplace. This application provides an easy way for sharing your code with others, not only in a live manner but also allowing for chatting, communicating, and debugging code in real-time. It also supports making notes or tasks, ensuring everything is scalable. The application is developed using React and Node technologies.
 
 ## Features
 
