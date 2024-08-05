@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Local CodeShare
 
 <div style="display: flex; justify-content: space-between;">
@@ -53,3 +54,6 @@ To install and run the application locally, follow these steps:
     2. Start sharing your code with others in your network or workplace.
 
 
+=======
+# local-codeshare
+>>>>>>> origin/main
